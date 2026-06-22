@@ -10,7 +10,7 @@ html { scroll-behavior: smooth; }
 body {
   background: var(--slot4-page-bg) !important;
   color: var(--slot4-page-text) !important;
-  background-image: none !important;
+  background-image: var(--slot4-body-gradient) !important;
   font-feature-settings: "kern", "liga", "clig", "calt";
 }
 
@@ -26,25 +26,81 @@ body {
 }
 
 ::-webkit-scrollbar { width: 10px; height: 10px; }
-::-webkit-scrollbar-track { background: #ebe7e1; }
-::-webkit-scrollbar-thumb { background: #171717; border: 2px solid #ebe7e1; }
+::-webkit-scrollbar-track { background: #e8efe6; }
+::-webkit-scrollbar-thumb { background: #96a78d; border: 2px solid #e8efe6; }
 ::-webkit-scrollbar-thumb:hover { background: var(--editorial-red); }
 
 .editorial-brand,
 .editorial-serif {
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
 }
 
 .editorial-brand {
-  font-style: italic;
-  letter-spacing: -0.065em;
+  letter-spacing: -0.055em;
 }
 
 .editorial-rule { border-color: color-mix(in srgb, var(--editorial-ink) 22%, transparent); }
 
+.luxury-shell {
+  position: relative;
+  isolation: isolate;
+}
+
+.luxury-shell::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(circle at 10% 5%, rgba(182, 206, 180, 0.32), transparent 22%),
+    radial-gradient(circle at 90% 0%, rgba(150, 167, 141, 0.18), transparent 24%),
+    linear-gradient(180deg, rgba(255,255,255,0.92), rgba(240,240,240,0.98));
+}
+
+.luxury-shell::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.22), rgba(255,255,255,0.22)),
+    repeating-linear-gradient(90deg, transparent 0, transparent 113px, rgba(17,36,63,0.02) 113px, rgba(17,36,63,0.02) 114px);
+  mask-image: linear-gradient(180deg, rgba(0,0,0,.75), rgba(0,0,0,.2));
+}
+
+.luxury-card {
+  border: 1px solid var(--slot4-border);
+  background: rgba(255,255,255,0.94);
+  box-shadow: 0 18px 48px rgba(26, 47, 77, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+.luxury-band {
+  background:
+    linear-gradient(135deg, rgba(18, 84, 138, 0.98), rgba(17, 36, 63, 1)),
+    radial-gradient(circle at top, rgba(255,255,255,0.10), transparent 34%);
+  color: white;
+}
+
+.luxury-grid-lines {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03), rgba(255,255,255,0.03)),
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: auto, 120px 120px, 120px 120px;
+}
+
+.editorial-kicker {
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  font-size: .72rem;
+  font-weight: 800;
+}
+
 .article-content {
-  color: #24211e;
-  font-family: Georgia, 'Times New Roman', serif;
+  color: #23374f;
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
   font-size: clamp(1.05rem, 1vw + .75rem, 1.25rem);
   line-height: 1.82;
 }
@@ -54,7 +110,7 @@ body {
 .article-content p:first-of-type::first-letter {
   float: left;
   margin: .08em .12em 0 0;
-  color: var(--editorial-red);
+  color: #1f78be;
   font-family: ui-sans-serif, system-ui, sans-serif;
   font-size: 4.7em;
   font-weight: 900;
@@ -65,7 +121,7 @@ body {
 .article-content h3,
 .article-content h4 {
   margin: 1.8em 0 .65em;
-  color: #111;
+  color: #11243f;
   font-family: ui-sans-serif, system-ui, sans-serif;
   font-weight: 900;
   letter-spacing: -.045em;
@@ -74,12 +130,12 @@ body {
 .article-content h2 { font-size: clamp(1.8rem, 4vw, 3rem); }
 .article-content h3 { font-size: clamp(1.45rem, 3vw, 2.15rem); }
 .article-content a { color: var(--editorial-red); font-weight: 700; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; }
-.article-content blockquote { margin: 2em 0; border-left: 7px solid var(--editorial-red); padding: .2em 0 .2em 1em; color: #111; font-size: 1.35em; font-weight: 700; line-height: 1.35; }
+.article-content blockquote { margin: 2em 0; border-left: 7px solid var(--editorial-red); padding: .2em 0 .2em 1em; color: #11243f; font-size: 1.35em; font-weight: 700; line-height: 1.35; }
 .article-content ul, .article-content ol { margin: 1.3em 0; padding-left: 1.4em; }
 .article-content li { margin: .5em 0; }
 .article-content img { width: 100%; margin: 2em 0; }
 
-input, textarea, select, button { border-radius: 0 !important; }
+input, textarea, select, button { border-radius: 0.75rem !important; }
 
 @media (max-width: 640px) {
   .article-content { font-size: 1.05rem; line-height: 1.72; }
