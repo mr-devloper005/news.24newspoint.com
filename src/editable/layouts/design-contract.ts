@@ -1,23 +1,25 @@
 import type { CSSProperties } from 'react'
 
 export const editableRootStyle = {
-  '--slot4-page-bg': '#f7f4ef',
-  '--slot4-page-text': '#111111',
-  '--slot4-panel-bg': '#efeae3',
-  '--slot4-surface-bg': '#fffdfa',
-  '--slot4-muted-text': '#514e49',
-  '--slot4-soft-muted-text': '#77716a',
-  '--slot4-accent': '#c92f2f',
-  '--slot4-accent-fill': '#c92f2f',
-  '--slot4-accent-soft': '#f3d8d3',
-  '--slot4-dark-bg': '#111111',
+  '--slot4-page-bg': '#f0f0f0',
+  '--slot4-page-text': '#11243f',
+  '--slot4-panel-bg': '#d9e9cf',
+  '--slot4-surface-bg': '#ffffff',
+  '--slot4-muted-text': '#576867',
+  '--slot4-soft-muted-text': '#809189',
+  '--slot4-accent': '#1f78be',
+  '--slot4-accent-fill': '#1f78be',
+  '--slot4-accent-soft': '#d9e9cf',
+  '--slot4-dark-bg': '#1a2f4d',
   '--slot4-dark-text': '#ffffff',
-  '--slot4-media-bg': '#e4e0da',
-  '--slot4-cream': '#f7f4ef',
-  '--slot4-warm': '#fffdfa',
-  '--slot4-lavender': '#c92f2f',
-  '--slot4-gray': '#ece9e4',
-  '--slot4-body-gradient': 'linear-gradient(180deg, #f7f4ef 0%, #fffdfa 52%, #eeeae4 100%)',
+  '--slot4-media-bg': '#e6ece6',
+  '--slot4-cream': '#f0f0f0',
+  '--slot4-warm': '#ffffff',
+  '--slot4-lavender': '#96a78d',
+  '--slot4-gray': '#d7dde0',
+  '--slot4-highlight': '#b6ceb4',
+  '--slot4-border': 'rgba(17, 36, 63, 0.12)',
+  '--slot4-body-gradient': 'radial-gradient(circle at top, rgba(182,206,180,0.28), transparent 28%), linear-gradient(180deg, #f6f8f4 0%, #ffffff 26%, #edf3ea 100%)',
 } as CSSProperties
 
 export const editablePalette = {
@@ -40,21 +42,21 @@ export const editablePalette = {
   warmBg: 'bg-[var(--slot4-warm)]',
   lavenderBg: 'bg-[var(--slot4-lavender)]',
   grayBg: 'bg-[var(--slot4-gray)]',
-  border: 'border-black/15',
-  darkBorder: 'border-white/20',
-  shadow: 'shadow-[0_10px_30px_rgba(17,17,17,0.08)]',
-  shadowStrong: 'shadow-[0_24px_70px_rgba(17,17,17,0.18)]',
-  overlay: 'bg-[linear-gradient(180deg,rgba(0,0,0,0.02),rgba(0,0,0,0.78))]',
+  border: 'border-[color:var(--slot4-border)]',
+  darkBorder: 'border-white/18',
+  shadow: 'shadow-[0_18px_50px_rgba(26,47,77,0.10)]',
+  shadowStrong: 'shadow-[0_32px_90px_rgba(26,47,77,0.18)]',
+  overlay: 'bg-[linear-gradient(180deg,rgba(17,36,63,0.05),rgba(17,36,63,0.78))]',
 } as const
 
 export const editableDesignContract = {
   shell: {
     page: `min-h-screen ${editablePalette.pageBg} ${editablePalette.pageText}`,
-    section: 'mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-10',
+    section: 'mx-auto w-full max-w-[1320px] px-4 sm:px-6 lg:px-8',
     sectionY: 'py-12 sm:py-16 lg:py-20',
   },
   layout: {
-    safeGrid: 'grid gap-px bg-black/15 md:grid-cols-2 xl:grid-cols-3',
+    safeGrid: 'grid gap-5 md:grid-cols-2 xl:grid-cols-3',
     featureGrid: 'grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-start',
     rail: 'flex snap-x gap-4 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden',
     minRailCard: 'w-[230px] shrink-0 snap-start sm:w-[260px]',
@@ -71,9 +73,9 @@ export const editableDesignContract = {
     dark: `${editablePalette.darkBg} ${editablePalette.darkText}`,
   },
   button: {
-    primary: `inline-flex items-center justify-center gap-2 bg-[var(--slot4-dark-bg)] px-7 py-3.5 text-xs font-black uppercase tracking-[0.12em] text-white transition hover:bg-[var(--slot4-accent-fill)]`,
-    secondary: `inline-flex items-center justify-center gap-2 border border-black/30 bg-transparent px-7 py-3.5 text-xs font-black uppercase tracking-[0.12em] text-black transition hover:bg-black hover:text-white`,
-    accent: `inline-flex items-center justify-center gap-2 bg-[var(--slot4-accent-fill)] px-7 py-3.5 text-xs font-black uppercase tracking-[0.12em] text-white transition hover:bg-black`,
+    primary: `inline-flex items-center justify-center gap-2 rounded-md bg-[var(--slot4-dark-bg)] px-7 py-3.5 text-xs font-black uppercase tracking-[0.12em] text-white transition hover:bg-[var(--slot4-accent-fill)]`,
+    secondary: `inline-flex items-center justify-center gap-2 rounded-md border border-[color:var(--slot4-border)] bg-white px-7 py-3.5 text-xs font-black uppercase tracking-[0.12em] text-[var(--slot4-page-text)] transition hover:bg-[var(--slot4-dark-bg)] hover:text-white`,
+    accent: `inline-flex items-center justify-center gap-2 rounded-md bg-[var(--slot4-accent-fill)] px-7 py-3.5 text-xs font-black uppercase tracking-[0.12em] text-white transition hover:bg-[var(--slot4-dark-bg)]`,
   },
   media: {
     frame: `relative overflow-hidden ${editablePalette.mediaBg}`,
@@ -87,7 +89,7 @@ export const editableDesignContract = {
 
 export const aiLayoutRules = [
   'All visible layout decisions belong inside src/editable; keep data, SEO, API, and route logic untouched.',
-  'Use a publication-style white masthead, black category navigation, red editorial accents, and sharp image-led grids.',
+  'Use a publication-style utility bar, premium masthead, refined green neutrals, and a polished media-distribution visual rhythm.',
   'Keep dynamic post fetching intact and never replace backend posts with mock arrays.',
   'Use postHref() for all post links so route aliases and task-specific detail pages remain functional.',
   'Prioritize readable desktop and mobile layouts with broad story columns and a focused long-form article measure.',
